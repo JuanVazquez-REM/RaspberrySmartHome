@@ -1,5 +1,4 @@
 import pymongo
-from pymongo import database
 
 class Mongodb:
 
