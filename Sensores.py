@@ -7,6 +7,7 @@ class Sensores:
 
     def sensor(self, data):
         response = {'status': False, 'message':None}
+        GPIO.setmode(GPIO.BCM)
         try:
             if data['sensor'] == "TEMPERATURA_HUMEDAD":
                 return self.Get_Temperatura_Humedad(data)
