@@ -42,8 +42,8 @@ def conexion_adonis():
 def prueba():
     data={'sensor': "TEMPERATURA_HUMEDAD",'tipo':"DHT11",'pin': 14} #Diccionario del sensor temperartura
     sensor = Sensores()
-    sensor.sensor(data)
-    print("Temperatura: "+ sensor['message']['temperatura'])
+    response = sensor.sensor(data)
+    print("Temperatura: "+ response['message']['temperatura'])
 
 prueba()
 
