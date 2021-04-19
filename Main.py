@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 from Dispositivos import Dispositivo
 
 def conexion_adonis():
-    ws = create_connection("ws://127.0.0.1:3333/adonis-ws")
+    ws = create_connection("ws://54.146.120.131:3333/adonis-ws")
 
     ws.send(json.dumps({ #me uno al canal
         "t":1,
@@ -19,7 +19,7 @@ def conexion_adonis():
         "d": {
             "topic":"wstemp",
             "event":"message",
-            "data":"Hi"
+            "data":"Hola aws"
         }
     }))
     print("respuesta al conectarme al channel y enviar un mensaje")
@@ -43,4 +43,3 @@ def conexion_adonis():
         conexion_adonis()
         print("Estableciendo conexion...")
 
-conexion_adonis()
