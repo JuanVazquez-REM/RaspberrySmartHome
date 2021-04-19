@@ -21,14 +21,16 @@ def conexion_adonis():
     print("Listo para enviar temperatura...")
     try:
         while True:
-            sensor = Sensores(data)
-            print("Temperatura: "+ sensor['message']['temperatura'])
+            sensor = Sensores()
+            response = sensor.sensor(data)
+            print("Temperatura registrada: ")
+            print(response['temperatura'])
             ws.send(json.dumps({ #despues realizo un evento en el canal, es decir envio en un mensaje
                 "t":7,
                 "d": {
                     "topic":"wstemp",
                     "event":"message",
-                    "data":sensor['message']['temperatura']
+                    "data":response['temperatura']
                 }
             }))
             #Foco = Dispositivo()
@@ -47,5 +49,5 @@ def prueba():
     print("Temperatura: ")
     print(response['temperatura'])
 
-prueba()
+conexion_adonis()
 
