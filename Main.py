@@ -23,8 +23,8 @@ def conexion_adonis():
         while True:
             sensor = Sensores()
             response = sensor.sensor(data)
-            print("Temperatura registrada: ")
-            print(response['temperatura'])
+            print("Sensor registrado: ")
+            print(response)
             ws.send(json.dumps({ #despues realizo un evento en el canal, es decir envio en un mensaje
                 "t":7,
                 "d": {
