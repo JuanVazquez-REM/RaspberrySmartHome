@@ -44,7 +44,7 @@ def prueba():
     sensor = Sensores()
     response = sensor.sensor(data)
     print(response)
-    print("Temperatura: "+ response['message']['temperatura'])
+    print("Temperatura: "+ response['temperatura'])
 
 prueba()
 
