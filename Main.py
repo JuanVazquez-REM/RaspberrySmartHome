@@ -40,3 +40,5 @@ def conexion_adonis():
         conexion_adonis()
         print("Estableciendo conexion...")
 
+conexion_adonis()
+
