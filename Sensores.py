@@ -38,7 +38,7 @@ class Sensores:
             GPIO.setup(data['pin'], GPIO.IN)
             humidity,temperature = dht.read_retry(sensor, data['pin'])
             response['status'] = True
-            response['message'] = {'humedad':humidity,'temperatura':temperature}
+            response = {'humedad':humidity,'temperatura':temperature}
             return response
             
         except Exception as e:
