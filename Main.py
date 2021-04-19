@@ -2,11 +2,9 @@ from websocket import create_connection
 import json
 from Dispositivos import Dispositivo
 from Sensores import Sensores
-import RPi.GPIO as GPIO 
 
 def conexion_adonis():
     data={'sensor': "TEMPERATURA_HUMEDAD",'tipo':"DHT11",'pin': 14} #Diccionario del sensor temperartura
-    GPIO.setmode(GPIO.BCM)
     ws = create_connection("ws://54.146.120.131:3333/adonis-ws") #Se enlaza al socket
 
     ws.send(json.dumps({ #me uno al canal
@@ -24,7 +22,7 @@ def conexion_adonis():
     try:
         while True:
             sensor = Sensores(data)
-            print("Temperatura registrada: "+sensor['message']['temperatura'])
+            print("Temperatura: "+ sensor['message']['temperatura'])
             ws.send(json.dumps({ #despues realizo un evento en el canal, es decir envio en un mensaje
                 "t":7,
                 "d": {
@@ -40,5 +38,11 @@ def conexion_adonis():
         conexion_adonis()
         print("Estableciendo conexion...")
 
-conexion_adonis()
+
+def prueba():
+    data={'sensor': "TEMPERATURA_HUMEDAD",'tipo':"DHT11",'pin': 14} #Diccionario del sensor temperartura
+    sensor = Sensores(data)
+    print("Temperatura: "+ sensor['message']['temperatura'])
+
+prueba()
 
