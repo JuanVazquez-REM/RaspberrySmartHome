@@ -43,6 +43,7 @@ def prueba():
     data={'sensor': "TEMPERATURA_HUMEDAD",'tipo':"DHT11",'pin': 14} #Diccionario del sensor temperartura
     sensor = Sensores()
     response = sensor.sensor(data)
+    print(response)
     print("Temperatura: "+ response['message']['temperatura'])
 
 prueba()
