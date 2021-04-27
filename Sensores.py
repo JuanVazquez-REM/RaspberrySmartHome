@@ -9,12 +9,12 @@ class Sensores:
         response = {'status': False, 'message':None}
         GPIO.setmode(GPIO.BCM)
         try:
-            if data['sensor'] == "TEMPERATURA_HUMEDAD":
+            if data['tipo'] == "Temperatura_Humedad":
                 return self.Get_Temperatura_Humedad(data)
-            elif data['sensor'] == "PIR":
+            elif data['tipo'] == "Pir":
                 return self.Get_PIR(data)
-            elif data['sensor'] == "ULTRASONICO":
-                print("ULTRASONICO")
+            elif data['tipo'] == "Ultrasonico":
+                return self.Get_Ultrasonico(data)
             else:
                 response['message'] = "Sensor no encontrado"
                 return response
@@ -26,9 +26,9 @@ class Sensores:
     def Get_Temperatura_Humedad(self,data):
         response = {'status': False, 'message':None}
 
-        if data['tipo'] == "DHT11":
+        if data['modelo'] == "DHT11":
             sensor = dht.DHT11
-        elif data['tipo'] == "DHT22":
+        elif data['modelo'] == "DHT22":
             sensor = dht.DHT22
         else:
             reponse['message'] = "Tipo de sensor temperatura no encontrado"
