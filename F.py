@@ -36,6 +36,7 @@ def conexion_adonis():
             data = messageDecoder['d']['data'] 
 
             foco = Dispositivo(data)
+            print(foco)
     except: 
         print("conexion perdida")
         conexion_adonis()
