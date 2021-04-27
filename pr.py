@@ -11,5 +11,5 @@ while True:
     print("Temperatura: ")
     print(temperature)
 
-    print("Temperatura: ")
+    print("Humedad: " )
     print(humidity)
