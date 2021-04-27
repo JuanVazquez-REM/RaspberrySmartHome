@@ -1,26 +1,14 @@
-import asyncio
-import websockets
-import json
+import RPi.GPIO as GPIO 
+import time
 
-async def hello():
-    uri = "ws://127.0.0.1:3333/adonis-ws"
-    async with websockets.connect(uri) as websocket:
-        await websocket.send("1")
-        greeting = await websocket.recv()
-        print(f"< {greeting}")
+GPIO.setmode(GPIO.BCM)
+sensor = dht.DHT11
 
-        await websocket.send(json.dumps({ #me uno al canal
-            "t":1,
-            "d": {
-                "topic":"wstemp",
-            }
-        }))
-        greeting = await websocket.recv()
-        print(f"< {greeting}")
+GPIO.setup(18, GPIO.IN)
+while True:
+    humidity,temperature = dht.read_retry(sensor, 18)
+    print("Temperatura: ")
+    print(temperature)
 
-        name = input("What's your name? ")
-        await websocket.send(name)
-        print(f"> {name}")
-
-while True :
-    asyncio.get_event_loop().run_until_complete(hello())
+    print("Temperatura: ")
+    print(humidity)

@@ -103,6 +103,3 @@ class Sensores:
         except Exception as e:
             response['message'] = e
             return response
-
-
-
