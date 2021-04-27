@@ -13,12 +13,12 @@ class Dispositivo:
 
     def onDevice(self,data):
         GPIO.setup(data['pin'], GPIO.OUT)
-        GPIO.output(data['pin'],True)
+        GPIO.output(data['pin'],False)
         return response
 
     def offDevice(self,data):
         GPIO.setup(data['pin'], GPIO.OUT)
-        GPIO.output(data['pin'],False)
+        GPIO.output(data['pin'],True)
         return response
 
 
