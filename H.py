@@ -1,7 +1,7 @@
 from websocket import create_connection
 import json
-""" from Dispositivos import Dispositivo
-from Sensores import Sensores """
+from Dispositivos import Dispositivo
+from Sensores import Sensores 
 
 def conexion_adonis():
     ws = create_connection("ws://54.146.120.131:3333/adonis-ws") #Se enlaza al socket
