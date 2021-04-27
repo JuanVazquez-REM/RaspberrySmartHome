@@ -25,17 +25,19 @@ def conexion_adonis():
     }))
     print("Respesta despues de enviar mensaje")
     print(ws.recv())
-
+    espera = True
 
     #print("Listo para enviar temperatura...")
     try:
         while True:
-            print("Esperando Respuesta de angular....")
-            messageJson = ws.recv()
-            messageDecoder = json.loads(messageJson)
-            data = messageDecoder['d']['data']
-            
+            if(espera):
+                print("Esperando Respuesta de angular....")
+                messageJson = ws.recv()
+                messageDecoder = json.loads(messageJson)
+                data = messageDecoder['d']['data']
+                
             if(data['tipo'] == "Temperatura_Humedad"):
+                espera = False
                 sensor = Sensores()
                 response = sensor.sensor(data)
                 print("Sensor registrado: ")
