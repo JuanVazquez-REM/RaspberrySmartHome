@@ -1,6 +1,7 @@
 from websocket import create_connection
 import json
 from Dispositivos import Dispositivo
+import RPi.GPIO as GPIO
 
 
 def conexion_adonis():
@@ -43,6 +44,8 @@ def conexion_adonis():
         print("conexion perdida")
         conexion_adonis()
         print("Estableciendo conexion...")
+    finally:
+        GPIO.cleanup()  
 
 conexion_adonis()
 

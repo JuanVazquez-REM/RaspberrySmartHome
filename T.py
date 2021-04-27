@@ -2,6 +2,7 @@ from websocket import create_connection
 import json
 from Dispositivos import Dispositivo
 from Sensores import Sensores 
+import RPi.GPIO as GPIO
 
 def conexion_adonis():
     ws = create_connection("ws://54.146.120.131:3333/adonis-ws") #Se enlaza al socket
@@ -54,6 +55,8 @@ def conexion_adonis():
         print("conexion perdida")
         conexion_adonis()
         print("Estableciendo conexion...")
+    finally:
+        GPIO.cleanup() 
 
 conexion_adonis()
 
