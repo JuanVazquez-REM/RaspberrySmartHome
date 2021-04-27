@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO 
+import Adafruit_DHT as dht
 import time
 
 GPIO.setmode(GPIO.BCM)
