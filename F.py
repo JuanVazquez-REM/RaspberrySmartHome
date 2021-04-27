@@ -30,6 +30,7 @@ def conexion_adonis():
     #print("Listo para enviar temperatura...")
     try:
         while True:
+            print("Esperando accion...")
             messageJson = ws.recv()
             print(messageJson)
             messageDecoder = json.loads(messageJson)
@@ -37,6 +38,7 @@ def conexion_adonis():
 
             foco = Dispositivo(data)
             print(foco)
+            print("Accion completada")
     except: 
         print("conexion perdida")
         conexion_adonis()
