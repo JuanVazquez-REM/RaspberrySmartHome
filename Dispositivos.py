@@ -19,4 +19,9 @@ class Dispositivo:
         GPIO.output(data['pin'],True)
         return response
 
+data={'estado':1,'pin':2}
+foco=Dispositivo(data)
+
+
+
 
