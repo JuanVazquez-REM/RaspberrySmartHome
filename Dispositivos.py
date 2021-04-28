@@ -14,16 +14,16 @@ class Dispositivo:
     def onDevice(self,data):
         if(data['in'] == 1):
             GPIO.setup(data['pin'], GPIO.OUT)
-            GPIO.output(data['pin'],True)
+            GPIO.output(data['pin'],False)
         else:
             GPIO.setup(data['pin'], GPIO.OUT)
-            GPIO.output(data['pin'],False)
+            GPIO.output(data['pin'],True)
         return response
 
     def offDevice(self,data):
         if(data['in'] == 1):
             GPIO.setup(data['pin'], GPIO.OUT)
-            GPIO.output(data['pin'],True)
+            GPIO.output(data['pin'],False)
         else:
             GPIO.setup(data['pin'], GPIO.OUT)
             GPIO.output(data['pin'],True)
