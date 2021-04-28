@@ -14,7 +14,7 @@ class Dispositivo:
     def onDevice(self,data):
         if(data['in'] == 1):
             GPIO.setup(data['pin'], GPIO.OUT)
-            GPIO.output(data['pin'],False)
+            GPIO.output(data['pin'],True)
         else:
             GPIO.setup(data['pin'], GPIO.OUT)
             GPIO.output(data['pin'],True)
@@ -26,7 +26,7 @@ class Dispositivo:
             GPIO.output(data['pin'],False)
         else:
             GPIO.setup(data['pin'], GPIO.OUT)
-            GPIO.output(data['pin'],True)
+            GPIO.output(data['pin'],False)
         return response
 
 
