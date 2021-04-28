@@ -1,15 +1,18 @@
 import RPi.GPIO as GPIO 
-import Adafruit_DHT as dht
 import time
 
+servoPIN = 5
 GPIO.setmode(GPIO.BCM)
-sensor = dht.DHT11
+GPIO.setup(servoPIN, GPIO.OUT)
 
-GPIO.setup(18, GPIO.IN)
+p = GPIO.PWM(servoPIN, 50) # GPIO 17 for PWM with 50Hz
+p.start(2.5) 
 while True:
-    humidity,temperature = dht.read_retry(sensor, 18)
-    print("Temperatura: ")
-    print(temperature)
-
-    print("Humedad: " )
-    print(humidity)
+    try:
+        p.ChangeDutyCycle(5)
+        time.sleep(0.5)
+        p.ChangeDutyCycle(7.5)
+        time.sleep(0.5)
+    except KeyboardInterrupt:
+        p.stop()
+        GPIO.cleanup()
