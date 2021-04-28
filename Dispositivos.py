@@ -12,13 +12,21 @@ class Dispositivo:
             self.offDevice(data)
 
     def onDevice(self,data):
-        GPIO.setup(data['pin'], GPIO.OUT)
-        GPIO.output(data['pin'],False)
+        if(data['in'] == 1):
+            GPIO.setup(data['pin'], GPIO.OUT)
+            GPIO.output(data['pin'],False)
+        else:
+            GPIO.setup(data['pin'], GPIO.OUT)
+            GPIO.output(data['pin'],True)
         return response
 
     def offDevice(self,data):
-        GPIO.setup(data['pin'], GPIO.OUT)
-        GPIO.output(data['pin'],True)
+        if(data['in'] == 1):
+            GPIO.setup(data['pin'], GPIO.OUT)
+            GPIO.output(data['pin'],False)
+        else:
+            GPIO.setup(data['pin'], GPIO.OUT)
+            GPIO.output(data['pin'],True)
         return response
 
 
