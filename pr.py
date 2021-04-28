@@ -7,6 +7,11 @@ GPIO.setup(servoPIN, GPIO.OUT)
 
 p = GPIO.PWM(servoPIN, 50) # GPIO 17 for PWM with 50Hz
 p.start(20)  
-time.sleep(1)
-p.ChangeDutyCycle(1) 
+try:
+    time.sleep(1)
+    p.ChangeDutyCycle(1) 
+except KeyboardInterrupt:
+    p.stop()
+    GPIO.cleanup()
+
 
