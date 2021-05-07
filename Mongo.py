@@ -21,12 +21,14 @@ class Mongodb:
         return doc
 
     def varios(self): #varios
-        resultados = self.col.find({})
+        resultados = self.col.find()
         return resultados
 
     def insertar(self, data): #insertar
         self.col.insert_one(data)
 
 db = Mongodb("mongodb+srv://UserHome:smarthomemongodb@cluster0.optcn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority","AdonisSmartHome","devices")
-a=db.select_one()
-print(a)
+
+
+for doc in db.varios():
+    print(doc)
