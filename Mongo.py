@@ -12,8 +12,9 @@ class Mongodb:
         return response
 
     def select_one(self): #uno simple       
-        doc = self.col.find_one({}).pretty()
+        doc = self.col.find_one({})
         return doc
+
 
     def ultimoDato(self): #ultimo Dato
         doc = self.col.find_one({"$query":{}, "$orderby":{"$natural":-1}})
@@ -25,3 +26,7 @@ class Mongodb:
 
     def insertar(self, data): #insertar
         self.col.insert_one(data)
+
+db = Mongodb("mongodb+srv://UserHome:smarthomemongodb@cluster0.optcn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority","AdonisSmartHome","devices")
+a=db.select_one()
+print(a)
